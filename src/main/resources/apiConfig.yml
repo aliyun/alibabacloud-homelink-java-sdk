@@ -1,0 +1,573 @@
+/**
+ * Copyright (c) 2019 Alibaba Group Holding Limited
+ */
+# 阿里IoT 人居PaaS服务 API配置文件
+# Date: 20190408
+
+name: HomeLink
+apis:
+  device_control:
+    name: 控制设备
+    url: /home/paas/device/control
+    version: 1.0.0
+    module: DEVICE
+  device_tsl_get:
+    name: 获取设备TSL
+    url: /home/paas/device/tsl/get
+    version: 1.0.0
+    module: DEVICE
+  device_list:
+    name: 查询设备
+    url: /home/paas/device/list
+    version: 1.0.0
+    module: DEVICE
+  device_nickname_update:
+    name: 更新设备备注名
+    url: /home/paas/device/nickname/update
+    version: 1.0.1
+    module: DEVICE
+  device_reset:
+    name: 重置设备
+    url: /home/paas/device/reset
+    version: 1.0.1
+    module: DEVICE
+  device_gateway:
+    name: 查询子设备网关
+    url: /home/paas/device/gateway/get
+    version: 1.0.1
+    module: DEVICE
+  device_sub_list:
+    name: 查询子设备网关
+    url: /home/paas/device/sub/list
+    version: 1.0.0
+    module: DEVICE
+  user_device_bind:
+    name: 绑定用户与设备
+    url: /home/paas/user/device/bind
+    version: 1.0.1
+    module: DEVICE
+  user_device_perm_auth:
+    name: 授予目标用户某设备的权限
+    url: /home/paas/user/device/perm/auth
+    version: 1.0.1
+    module: DEVICE
+  device_detail_get:
+    name: 查询设备详情
+    url: /home/paas/device/detail/get
+    version: 1.0.0
+    module: DEVICE
+  user_device_unbind:
+    name: 解绑用户与设备
+    url: /home/paas/user/device/unbind
+    version: 1.0.1
+    module: DEVICE
+  user_device_list:
+    name: 查询用户的设备
+    url: /home/paas/user/device/list
+    version: 1.0.0
+    module: DEVICE
+  device_user_list:
+    name: 查询设备的用户
+    url: /home/paas/device/user/list
+    version: 1.0.1
+    module: DEVICE
+  device_space_get:
+    name: 查询设备的空间
+    url: /home/paas/device/space/get
+    version: 1.0.0
+    module: DEVICE
+  device_nickname_get:
+    name: 获取设备备注名
+    url: /home/app/device/nickname/get
+    version: 1.0.0
+    module: DEVICE
+  device_category_list:
+    name: 获取设备备注名
+    url: /home/paas/category/list
+    version: 1.0.0
+    module: DEVICE
+  scene_create:
+    name: 创建场景
+    url: /home/paas/scene/create
+    version: 1.0.0
+    module: SCENE
+  scene_delete:
+    name: 删除场景
+    url: /home/paas/scene/delete
+    version: 1.0.0
+    module: SCENE
+  scene_baseinfo_update:
+    name: 更新场景
+    url: /home/paas/scene/baseinfo/update
+    version: 1.0.0
+    module: SCENE
+  scene_list:
+    name: 查询场景
+    url: /home/paas/scene/list
+    version: 1.0.0
+    module: SCENE
+  scene_get:
+    name: 获取场景详情
+    url: /home/paas/scene/get
+    version: 1.0.1
+    module: SCENE
+  scene_instance_run:
+    name: 执行场景
+    url: /home/paas/scene/instance/run
+    version: 1.0.0
+    module: SCENE
+  scene_switch_update:
+    name: 在云端部署/撤销场景
+    url: /home/paas/scene/switch/update
+    version: 1.0.0
+    module: SCENE
+  scene_device_tenant_tca_list:
+    name: 获取租户下符合tca功能的设备列表
+    url: /home/paas/scene/device/tenant/tca/list
+    version: 1.0.0
+    module: SCENE
+  device_user_tca_list:
+    name: 获取用户下符合tca功能的设备列表
+    url: /home/paas/device/user/tca/list
+    version: 1.0.0
+    module: SCENE
+  scene_tca_update:
+    name: 更新场景TCA
+    url: /home/paas/scene/tca/update
+    version: 1.0.0
+    module: SCENE
+  user_scene_bind:
+    name: 绑定用户和场景
+    url: /home/paas/user/scene/bind
+    version: 1.0.0
+    module: SCENE
+  user_scene_unbind:
+    name: 解绑用户和场景
+    url: /home/paas/user/scene/unbind
+    version: 1.0.0
+    module: SCENE
+  user_scene_list:
+    name: 查询用户的场景
+    url: /home/paas/user/scene/list
+    version: 1.0.0
+    module: SCENE
+  scene_user_list:
+    name: 查询场景的用户列表
+    url: /home/paas/scene/user/list
+    version: 1.0.0
+    module: SCENE
+  product_list:
+    name: 查询产品列表
+    url: /home/paas/product/list
+    version: 1.0.4
+    module: SCENE_TEMPLATE
+  productkey_tca_filter:
+    name: 筛选符合TCA功能的产品
+    url: /home/paas/productkey/tca/filter
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  product_tca_get:
+    name: 获取产品TCA属性
+    url: /home/paas/product/tca/get
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  scenetemplate_create:
+    name: 创建场景模板
+    url: /home/paas/scenetemplate/create
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  scenetemplate_update:
+    name: 更新场景模板
+    url: /home/paas/scenetemplate/update
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  scenetemplate_list:
+    name: 查询场景模板
+    url: /home/paas/scenetemplate/list
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  user_scenetemplate_list:
+    name: 查询用户的场景模板
+    url: /home/paas/user/scenetemplate/list
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  spacetemplate_scenetemplate_list:
+    name: 查询空间模板的场景模板
+    url: /home/paas/spacetemplate/scenetemplate/list
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  scenetemplate_get:
+    name: 获取场景模板详情
+    url: /home/paas/scenetemplate/get
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  scenetemplate_delete:
+    name: 删除场景模板
+    url: /home/paas/scenetemplate/delete
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  user_scenetemplate_bind:
+    name: 绑定用户与场景模板
+    url: /home/paas/user/scenetemplate/bind
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  user_scenetemplate_unbind:
+    name: 解绑用户与场景模板
+    url: /home/paas/user/scenetemplate/unbind
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  spacetemplate_scenetemplate_bind:
+    name: 绑定空间模板与场景模板
+    url: /home/paas/spacetemplate/scenetemplate/bind
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  spacetemplate_scenetemplate_unbind:
+    name: 解绑空间模板与场景模板
+    url: /home/paas/spacetemplate/scenetemplate/unbind
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  scenetemplate_user_list:
+    name: 查询场景模板的用户
+    url: /home/paas/scenetemplate/user/list
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  scenetemplate_spacetemplate_unbind:
+    name: 解绑场景模板的空间模板
+    url: /home/paas/scenetemplate/spacetemplate/unbind
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  scenetemplate_allspacetemplates_unbind:
+    name: 解绑场景模板的所有空间模板
+    url: /home/paas/scenetemplate/allspacetemplates/unbind
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  spacetemplate_allscenetemplates_unbind:
+    name: 解绑空间模板的所有场景模板
+    url: /home/paas/spacetemplate/allscenetemplates/unbind
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  scenetemplate_user_unbind:
+    name: 解绑场景模板的用户
+    url: /home/paas/scenetemplate/user/unbind
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  scenetemplate_allusers_unbind:
+    name: 解绑场景模板的所有用户
+    url: /home/paas/scenetemplate/allusers/unbind
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  user_allscenetemplates_unbind:
+    name: 解绑用户的场景模板
+    url: /home/paas/user/allscenetemplates/unbind
+    version: 1.0.1
+    module: SCENE_TEMPLATE
+  space_root_create:
+    name: 创建顶层空间
+    url: /home/paas/space/root/create
+    version: 1.0.0
+    module: SPACE
+  space_sub_create:
+    name: 创建子空间
+    url: /home/paas/space/sub/create
+    version: 1.0.0
+    module: SPACE
+  space_bytemplate_create:
+    name: 空间模板生成实例
+    url: /home/paas/space/bytemplate/create
+    version: 1.0.1
+    module: SPACE
+  space_sub_list:
+    name: 查询子空间
+    url: /home/paas/space/sub/list
+    version: 1.0.3
+    module: SPACE
+  space_root_list:
+    name: 获取根空间列表
+    url: /home/paas/space/root/list
+    version: 1.0.2
+    module: SPACE
+  space_update:
+    name: 更新空间
+    url: /home/paas/space/update
+    version: 1.0.0
+    module: SPACE
+  space_delete:
+    name: 删除空间
+    url: /home/paas/space/delete
+    version: 1.0.0
+    module: SPACE
+  space_get:
+    name: 获取空间信息
+    url: /home/paas/space/get
+    version: 1.0.3
+    module: SPACE
+  device_space_bind:
+    name: 绑定空间与设备
+    url: /home/paas/device/space/bind
+    version: 1.0.0
+    module: SPACE
+  device_space_unbind:
+    name: 解绑空间与设备
+    url: /home/paas/device/space/unbind
+    version: 1.0.0
+    module: SPACE
+  space_device_list:
+    name: 查询空间的设备
+    url: /home/paas/space/device/list
+    version: 1.0.0
+    module: SPACE
+  space_scene_bind:
+    name: 绑定空间和场景
+    url: /home/paas/space/scene/bind
+    version: 1.0.1
+    module: SPACE
+  space_scene_unbind:
+    name: 解绑空间和场景
+    url: /home/paas/space/scene/unbind
+    version: 1.0.0
+    module: SPACE
+  space_allscene_unbind:
+    name: 解绑空间和所有场景
+    url: /home/paas/space/allscene/unbind
+    version: 1.0.0
+    module: SPACE
+  space_scene_list:
+    name: 查询空间的场景
+    url: /home/paas/space/scene/list
+    version: 1.0.0
+    module: SPACE
+  space_allusers_unbind:
+    name: 解绑空间所有用户
+    url: /home/paas/space/allusers/unbind
+    version: 1.0.0
+    module: SPACE
+  space_user_list:
+    name: 查询空间的用户
+    url: /home/paas/space/user/list
+    version: 1.0.0
+    module: SPACE
+  user_allspaces_unbind:
+    name: 解绑用户的所有空间
+    url: /home/paas/user/allspaces/unbind
+    version: 1.0.0
+    module: SPACE
+  user_space_bind:
+    name: 绑定用户与空间
+    url: /home/paas/user/space/bind
+    version: 1.0.0
+    module: SPACE
+  user_space_list:
+    name: 查询用户的空间
+    url: /home/paas/user/space/list
+    version: 1.0.0
+    module: SPACE
+  user_space_unbind:
+    name: 解绑用户与空间
+    url: /home/paas/user/space/unbind
+    version: 1.0.0
+    module: SPACE
+  spacetemplate_create:
+    name: 新增空间模板
+    url: /home/paas/spacetemplate/create
+    version: 1.0.1
+    module: SPACE_TEMPLATE
+  spacetemplate_delete:
+    name: 删除空间模板
+    url: /home/paas/spacetemplate/delete
+    version: 1.0.1
+    module: SPACE_TEMPLATE
+  spacetemplate_update:
+    name: 修改空间模板
+    url: /home/paas/spacetemplate/update
+    version: 1.0.1
+    module: SPACE_TEMPLATE
+  spacetemplate_list:
+    name: 查询空间模板列表
+    url: /home/paas/spacetemplate/list
+    version: 1.0.1
+    module: SPACE_TEMPLATE
+  user_spacetemplate_list:
+    name: 查询用户空间模板列表
+    url: /home/paas/user/spacetemplate/list
+    version: 1.0.1
+    module: SPACE_TEMPLATE
+  spacetemplate_product_add:
+    name: 空间模板下添加产品
+    url: /home/paas/spacetemplate/product/add
+    version: 1.0.1
+    module: SPACE_TEMPLATE
+  spacetemplate_product_delete:
+    name: 从空间模板中删除产品
+    url: /home/paas/spacetemplate/product/delete
+    version: 1.0.1
+    module: SPACE_TEMPLATE
+  spacetemplate_product_list:
+    name: 查询空间模板下产品列表
+    url: /home/paas/spacetemplate/product/list
+    version: 1.0.1
+    module: SPACE_TEMPLATE
+  scenetemplate_spacetemplate_list:
+    name: 查询场景模板的空间模板
+    url: /home/paas/scenetemplate/spacetemplate/list
+    version: 1.0.1
+    module: SPACE_TEMPLATE
+  space_virtualdevice_bind:
+    name: 空间绑定虚拟设备
+    url: /home/paas/space/virtualdevice/bind
+    version: 1.0.0
+    module: VIRTUAL
+  space_virtualdevice_delete:
+    name: 空间虚拟设备删除
+    url: /home/paas/space/virtualdevice/delete
+    version: 1.0.0
+    module: VIRTUAL
+  space_virtualdevice_replace:
+    name: 空间虚拟设备替换
+    url: /home/paas/space/virtualdevice/replace
+    version: 1.0.0
+    module: VIRTUAL
+  space_virtualdevice_list:
+    name: 获取空间虚拟设备列表
+    url: /home/paas/space/virtualdevice/list
+    version: 1.0.0
+    module: VIRTUAL
+  spacetemplate_user_list:
+    name: 查询空间模板的用户
+    url: /home/paas/spacetemplate/user/list
+    version: 1.0.1
+    module: nan
+  user_spacetemplate_bind:
+    name: 绑定用户与空间模板
+    url: /home/paas/user/spacetemplate/bind
+    version: 1.0.1
+    module: nan
+  user_spacetemplate_unbind:
+    name: 解绑用户与空间模板
+    url: /home/paas/user/spacetemplate/unbind
+    version: 1.0.1
+    module: nan
+  space_gateway_list:
+    name: 查询空间的边缘网关
+    url: /home/paas/space/edge/gateway/query
+    version: 1.0.0
+    module: nan
+  user_gateway_list:
+    name: 查询人的边缘网关
+    url: /home/paas/user/edge/gateway/query
+    version: 1.0.0
+    module: nan
+  tenant_gateway_list:
+    name: 查询租户的边缘网关
+    url: /home/paas/edge/gateway/query
+    version: 1.0.0
+    module: nan
+  push_config_gateway:
+    name: 推送配置到边缘网关设备
+    url: /home/paas/edge/config/push
+    version: 1.0.0
+    module: nan
+  clear_gateway_config:
+    name: 清空边缘网关上的配置
+    url: /home/paas/edge/config/clear
+    version: 1.0.0
+    module: nan
+  delete_gateway_config:
+    name: 移除边缘网关上的配置
+    url: /home/paas/edge/config/delete
+    version: 1.0.0
+    module: nan
+  add_device_to_gateway:
+    name: 向边缘网关配置中添加设备
+    url: /home/paas/edge/device/add
+    version: 1.0.0
+    module: nan
+  delete_device_from_gateway:
+    name: 向边缘网关配置中删除设备
+    url: /home/paas/edge/device/delete
+    version: 1.0.0
+    module: nan
+  get_device_from_gateway:
+    name: 查询已经加入到边缘网关配置下的子设备列表
+    url: /home/paas/edge/device/query
+    version: 1.0.0
+    module: nan
+  unconfigured_device_from_gateway:
+    name: 查询边缘网关已连接但未加入到配置下的子设备列表
+    url: /home/paas/edge/unconfigured/device/query
+    version: 1.0.0
+    module: nan
+  add_scene_to_gateway:
+    name: 向边缘网关配置中添加场景
+    url: /home/paas/edge/scene/add
+    version: 1.0.0
+    module: nan
+  delete_scene_to_gateway:
+    name: 向边缘网关配置删除添加场景
+    url: /home/paas/edge/scene/delete
+    version: 1.0.0
+    module: nan
+  get_scene_list_from_gateway:
+    name: 查询边缘网关配置中的场景
+    url: /home/paas/edge/scene/query
+    version: 1.0.0
+    module: nan
+  cloud_api_housespace_query:
+    name: 云端查询房屋空间列表
+    url: /homelink/cloud/api/external/housespace/query
+    version: 1.0.0
+    module: EXT_ACCOUNT
+  cloud_api_houseinfo_get:
+    name: 云端查询房屋内控制信息
+    url: /homelink/cloud/api/external/houseinfo/get
+    version: 1.0.0
+    module: EXT_ACCOUNT
+  cloud_api_device_control:
+    name: 云端控制设备
+    url: /homelink/cloud/api/external/device/control
+    version: 1.0.0
+    module: EXT_ACCOUNT
+  cloud_api_scene_fire:
+    name: 云端触发场景执行
+    url: /homelink/cloud/api/external/scene/fire
+    version: 1.0.0
+    module: EXT_ACCOUNT
+  cloud_api_account_auth_cancelall:
+    name: 云端取消账号授权
+    url: /homelink/cloud/api/external/account/all/cancel
+    version: 1.0.0
+    module: EXT_ACCOUNT
+  cloud_api_device_properties_get:
+    name: 获取设备属性和状态
+    url: /homelink/cloud/api/external/device/properties/get
+    version: 1.0.0
+    module: EXT_ACCOUNT
+  cloud_api_tsl_get:
+    name: 获取产品TSL
+    url: /homelink/cloud/api/external/tsl/get
+    version: 1.0.0
+    module: EXT_ACCOUNT
+  cloud_api_temperature_control:
+    name: 云端温度控制
+    url: /homelink/cloud/api/temperature/control
+    version: 1.0.0
+    module: EXT_ACCOUNT
+  cloud_api_account_auth_cancel:
+    name: 取消外部账号授权
+    url: /homelink/cloud/api/account/auth/cancel
+    version: 1.0.0
+    module: EXT_ACCOUNT
+  cloud_api_account_auth_query:
+    name: 查询外部账号授权信息
+    url: /homelink/cloud/api/account/auth/query
+    version: 1.0.0
+    module: EXT_ACCOUNT
+  cloud_api_account_auth_confirm:
+    name: 外部账号授权确认
+    url: /homelink/cloud/api/account/auth/confirm
+    version: 1.0.0
+    module: EXT_ACCOUNT
+  cloud_api_account_auth_commit:
+    name: 外部账号预授权
+    url: /homelink/cloud/api/account/auth/commit
+    version: 1.0.0
+    module: EXT_ACCOUNT
