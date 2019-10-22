@@ -19,7 +19,7 @@ API SDK完全遵守IoT网关协议。如果不想使用，可以根据IoT网关�
 public class DeviceAPI {}
 ```
 
-##（2）定义API URL
+## （2）定义API URL
 
 在刚定义的API类上，为新接口定义一个常量URL，这是API的对外接口。URL的配置见接口定义。
 ```java
@@ -28,7 +28,7 @@ public class DeviceAPI {
 }
 ```
 
-##（3）添加业务方法
+## （3）添加业务方法
 
 接口的返回值是设备列表，这里可以忽略接口返回的Result模式的结果封装，直接定义业务结果类型。
 所以方法的结果类型应该是List<DeviceDTO>。
@@ -56,7 +56,7 @@ public class LockAPI {
 能看到方法的返回值是ApiCommand，参数类型即接口的业务类型List<DeviceDTO>>。
 接口中只定义了API不变的部分，可以用static定义方法。
 
-##（4）编写API命令
+## （4）编写API命令
 
 这里要想几个问题，在调用API时，什么是变化的，什么是不变的。
 * 变化的是环境、参数和结果；
@@ -109,7 +109,7 @@ ApiCommond提供了链式API，可以直接设置所有参数。
 * 第18行，为ApiCommand提供了结果的校验方法。由于结果是Result模式的设计，所以校验code值为200。很容易看出来的是，校验方法的参数，就是IoTxResult内部的封装参数。
 * 第22行，为ApiCommand提供了结果的解析方法，从结果的JSONObject或JSONArray中解析出业务对象。这个业务对象就是ApiCommand的泛型参数。
 
-##（5）调用API
+## （5）调用API
 
 调用API时，才需要给提供变化的参数，包括：
 * 环境
