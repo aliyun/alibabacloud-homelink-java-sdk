@@ -8,8 +8,11 @@ API SDK完全遵守IoT网关协议。如果不想使用，可以根据IoT网关�
 
 
 # 编写API
+
 下面以“查询用户设备”接口为例，说明如何编写测试API。
+
 ## （1）定义API类
+
 定义一个可以分组封装API的类，如DeviceAPI。这个类将要提供设备相关接口的访问能力。
 
 ```java
@@ -17,6 +20,7 @@ public class DeviceAPI {}
 ```
 
 ##（2）定义API URL
+
 在刚定义的API类上，为新接口定义一个常量URL，这是API的对外接口。URL的配置见接口定义。
 ```java
 public class DeviceAPI {
@@ -25,6 +29,7 @@ public class DeviceAPI {
 ```
 
 ##（3）添加业务方法
+
 接口的返回值是设备列表，这里可以忽略接口返回的Result模式的结果封装，直接定义业务结果类型。
 所以方法的结果类型应该是List<DeviceDTO>。
 
@@ -50,10 +55,13 @@ public class LockAPI {
 ```
 能看到方法的返回值是ApiCommand，参数类型即接口的业务类型List<DeviceDTO>>。
 接口中只定义了API不变的部分，可以用static定义方法。
+
 ##（4）编写API命令
+
 这里要想几个问题，在调用API时，什么是变化的，什么是不变的。
 * 变化的是环境、参数和结果；
 * 不变化的是接口定义，结果解析过程；
+
 所以编写API命令时，要定义的内容包括：
 * API URL & VERSION
 * 如何拼装请求参数
@@ -65,7 +73,6 @@ public class LockAPI {
 ```java
 public static
 ApiCommand<List<DeviceDTO>> getUserDeviceList(String hid,Integer pageNo) {
-  
     return new ApiCommand<List<DeviceDTO>>(USER_DEVICE_LIST)
         // 定义版本
         .apiVer("1.0.0")
@@ -92,6 +99,7 @@ ApiCommand<List<DeviceDTO>> getUserDeviceList(String hid,Integer pageNo) {
         });
 }
 ```
+
 方法只有一个return语句，返回类型是ApiCommand<List<DeviceDTO>>。
 
 ApiCommond提供了链式API，可以直接设置所有参数。
@@ -102,6 +110,7 @@ ApiCommond提供了链式API，可以直接设置所有参数。
 * 第22行，为ApiCommand提供了结果的解析方法，从结果的JSONObject或JSONArray中解析出业务对象。这个业务对象就是ApiCommand的泛型参数。
 
 ##（5）调用API
+
 调用API时，才需要给提供变化的参数，包括：
 * 环境
 * 身份（需要登录态时使用，需要提供iotToken）
@@ -125,12 +134,14 @@ ApiEnvironment提供了连接参数定义。默认情况下，在ApiHelper中提
 
 示例：
 验证正确的结果：
+
 ```java
 @Test
 public void testGetUserDeviceListOK(){
     List<DeviceDTO> abc = getUserDeviceList("abc", 2).executeAndGet();
 }
 ```
+
 验证错误的结果：
 ```java
 @Test
@@ -143,7 +154,9 @@ public void testGetUserDeviceListError() {
 }
 ```
 由于错误结果中不会有数据，所以调用方法改为execute()
+
 ## 完整示例
+
 ### API定义
 
 ```java
@@ -207,7 +220,9 @@ public class DeviceAPITest{
 ```
 
 # 功能
+
 下面就每项功能给出具体的说明和示例。
+
 ## 配置连接参数
 
 如果在测试时需要切换不同的租户，可以预先定义好不同租户的appKey/appSecret以备用。
@@ -225,13 +240,16 @@ ApiEnvironment env = ApiEnvironment.builder()
 ```
 
 ## 配置默认连接参数
+
 很多情况下，我们需要一个默认的连接参数，以满足大多数的访问。
 可以使用`ApiContext#setEnv`设置默认的连接参数，而不必每次都指定。
 
 
 
 ## 创建接口
+
 ### 创建ApiCommand
+
 每个API接口被抽象成一个ApiCommand对象。
 这个对象的Api被设计成简短名名的流式风格，方便连接配置参数和运行，最后得到接口的返回值。
 创建ApiCommand最少要提供两个参数，一个是接口的URL，一个是接口返回值的类型。
@@ -254,6 +272,7 @@ new ApiCommand<List<DeviceDTO>>(USER_DEVICE_LIST)
 ```
 
 ### 设置参数提供器 paramSupplier
+
 paramSupplier是参数的提供器，它负责把简单的业务参数封装成接口使用的完全参数，使得对外提供的API封装接口可以面向业务有更简单的接口设计。
 
 paramSupplier的返回类型，就是构造方法里指定的接口返回类型。
@@ -276,6 +295,7 @@ new ApiCommand<List<DeviceDTO>>(USER_DEVICE_LIST)
 ```
 
 ### 设置接口校验方法 assertFunc
+
 接口请求后会有多种返回值，对于测试环境来说，有些错误的返回结果是期待的。对业务环境来说，可能只期待正确的返回结果。
 
 使用asertFunc提供校验方法的实现，具体实现根据使用环境而定。对业务环境来说，只简单的校验code值等于200即可。对测试环境来说，可以在接口执行前，传入新的校验方法，检查期望的其它错误码。
@@ -302,6 +322,7 @@ new ApiCommand<List<DeviceDTO>>(USER_DEVICE_LIST)
 ```
 
 ### 设置结果转换方法 convertFunc
+
 结果转换方法是在接口请求成功后，把JSON格式的结果转换成业务类型。
 其入参是JSONObject和JSONArray的父类型，方法中需要根据接口文档的说明，决定把JSON的类型强制转换成JSONObject或JSONArray。
 
@@ -336,11 +357,12 @@ new ApiCommand<List<DeviceDTO>>(USER_DEVICE_LIST)
 ```
 
 ### 执行接口 execute/executeAndGet
+
 ApiCommand提供了两个执行方法：
 
 - execute方法，执行请求，并调用校验方法（assertFunc）验证返回结果。
 - executeAndGet方法，执行请求，并根据返回的code值有不同的处理：
-  - 返回200时，**调用结果转换方法（convertFunc）获得返回结果，再调用校验方法（assertFunc）验证返回值。
+  - 返回200时，调用结果转换方法（convertFunc）获得返回结果，再调用校验方法（assertFunc）验证返回值。
 **
   - 返回非200时，直接调用校验方法（assertFunc）验证返回值，不再调用结果转换方法。
 
