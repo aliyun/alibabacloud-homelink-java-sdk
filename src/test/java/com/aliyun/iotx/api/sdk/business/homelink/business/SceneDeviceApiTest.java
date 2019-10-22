@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink.business;
 
 import com.aliyun.iotx.api.sdk.TestInit;
@@ -12,7 +9,7 @@ import static org.junit.Assert.*;
 
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/09/20
  */
 public class SceneDeviceApiTest {

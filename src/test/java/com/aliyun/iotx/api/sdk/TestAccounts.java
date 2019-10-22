@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk;
 
 import com.aliyun.iotx.api.sdk.dto.IdentityDTO;
@@ -12,7 +9,7 @@ import lombok.Data;
 /**
  * 测试账号的初始化
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/09/19
  */
 @SuppressWarnings("WeakerAccess")
@@ -27,13 +24,13 @@ public class TestAccounts {
             operator.setHid("xxx");
             operator.setHidType("IOT");
 
-            ApiEnvironment env = ApiEnvironment.builder()
-                .name("alios-env")
-                .appKey("xxx")
-                .appSecret("xxx")
-                .host("api.link.aliyun.com")
-                .requestTimeout(30_000L)
-                .build();
+ApiEnvironment env = ApiEnvironment.builder()
+    .name("alios-env")
+    .appKey("xxx")
+    .appSecret("xxx")
+    .host("api.link.aliyun.com")
+    .requestTimeout(30_000L)
+    .build();
 
             EMPTY_ENV = new ApiEnv(env, operator);
         }

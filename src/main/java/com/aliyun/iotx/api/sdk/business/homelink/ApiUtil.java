@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink;
 
 import com.aliyun.iotx.api.sdk.dto.IdentityDTO;
@@ -16,7 +13,7 @@ import static java.util.Objects.nonNull;
 /**
  * API一般工具
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/25
  */
 public final class ApiUtil {

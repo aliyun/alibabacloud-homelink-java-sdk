@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk;
 
 import com.aliyun.iotx.api.sdk.dto.IdentityDTO;
@@ -12,7 +9,7 @@ import lombok.Getter;
 /**
  * 测试环境初始化类，不用在每个测试中都执行环境初始化
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/09/20
  */
 public class TestInit {
@@ -28,7 +25,7 @@ public class TestInit {
      */
     public static void init() {
         // TODO 手动修改，选择测试用的账号
-        TestAccounts.ApiEnv apiEnv = TestAccounts.EMPTY_ENV;
+        TestAccounts.ApiEnv apiEnv = TestAccounts.ALIOS_ENV;
 
         operator = initEnv(apiEnv, true, false);
         env = apiEnv.env;

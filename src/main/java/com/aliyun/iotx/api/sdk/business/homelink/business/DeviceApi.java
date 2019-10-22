@@ -1,13 +1,7 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink.business;
 
 import com.alibaba.fastjson.JSONObject;
-import com.aliyun.iotx.api.sdk.business.homelink.ApiResultTypeConstants;
 import com.aliyun.iotx.api.sdk.business.homelink.dto.device.*;
-import com.aliyun.iotx.api.sdk.business.homelink.dto.product.ProductDTO;
-import com.aliyun.iotx.api.sdk.business.homelink.dto.product.ProductQueryDTO;
 import com.aliyun.iotx.api.sdk.dto.IdentityDTO;
 import com.aliyun.iotx.api.sdk.dto.PageDTO;
 import com.aliyun.iotx.api.sdk.dto.PageSearchDTO;
@@ -18,19 +12,20 @@ import com.aliyun.iotx.api.util.command.ApiCommand;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.aliyun.iotx.api.sdk.business.homelink.ApiUtil.createParamMap;
 import static com.aliyun.iotx.api.sdk.business.homelink.ApiResultTypeConstants.*;
+import static com.aliyun.iotx.api.sdk.business.homelink.ApiUtil.createParamMap;
 import static com.aliyun.iotx.api.util.assertion.IoTxAssertions.*;
 import static com.aliyun.iotx.api.util.command.ApiCommandHelper.getApiCommand;
+
 
 /**
  * 设备相关API
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/09
  */
 @SuppressWarnings("WeakerAccess")
-public final class DeviceApi {
+public class DeviceApi {
 
     /**
      * 重置设备
@@ -116,7 +111,7 @@ public final class DeviceApi {
 
         HashMap<String, Object> params = createParamMap(operator, iotId, 2);
 
-        return getApiCommand(apiConfig, params, RETURN_TYPE_GET_DEVICE_TSL);
+        return getApiCommand(apiConfig, params, RETURN_TYPE_GET_TSL);
     }
 
     /**
@@ -148,13 +143,30 @@ public final class DeviceApi {
     }
 
     /**
+     * 根据PK、DN查询设备信息
+     *
+     * @param productKey
+     * @param deviceName
+     * @return 调用 {@link ApiCommand#executeAndGet()} 执行
+     */
+    public static ApiCommand<DeviceBaseDTO> getIotId(IdentityDTO operator, String productKey, String deviceName) {
+        ApiConfig apiConfig = ApiConfigLoader.get(G_HOME_LINK, "device_info_get");
+
+        HashMap<String, Object> params = createParamMap(operator, 2);
+        params.put("productKey", productKey);
+        params.put("deviceName", deviceName);
+
+        return getApiCommand(apiConfig, params, RETURN_TYPE_DEVICE_BASE);
+    }
+
+    /**
      * 查询子设备网关
      *
      * @param operator 操作者
      * @param iotId    设备ID
      * @return 调用 {@link ApiCommand#executeAndGet()} 执行获取场景ID
      */
-    public static ApiCommand<DeviceBaseDTO> queryGatewayOfSubDevice(IdentityDTO operator, String iotId) {
+    public static ApiCommand<GatewayDeviceDTO> queryGatewayOfSubDevice(IdentityDTO operator, String iotId) {
         assertNonNull(operator);
         assertNotBlank(iotId);
 

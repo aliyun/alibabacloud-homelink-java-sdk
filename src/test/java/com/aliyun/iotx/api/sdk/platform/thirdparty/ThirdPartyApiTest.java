@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/30
  */
 public class ThirdPartyApiTest {

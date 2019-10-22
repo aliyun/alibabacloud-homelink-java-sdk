@@ -1,10 +1,9 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.platform.thirdparty;
 
 import com.alibaba.fastjson.JSONObject;
 import com.aliyun.iotx.api.sdk.business.homelink.DefaultAssertFunc;
+import com.aliyun.iotx.api.sdk.business.homelink.dto.user.IdentityDTO;
+import com.aliyun.iotx.api.sdk.business.homelink.dto.user.ThirdAccountListDTO;
 import com.aliyun.iotx.api.util.api.ApiConfig;
 import com.aliyun.iotx.api.util.api.ApiConfigLoader;
 import com.aliyun.iotx.api.util.command.ApiCommand;
@@ -15,12 +14,15 @@ import java.util.HashMap;
 import java.util.Optional;
 
 import static com.aliyun.iotx.api.sdk.business.homelink.ApiResultTypeConstants.G_BASE_SEP;
+import static com.aliyun.iotx.api.sdk.business.homelink.ApiResultTypeConstants.RETURN_TYPE_IDENTITY;
+import static com.aliyun.iotx.api.sdk.business.homelink.ApiResultTypeConstants.RETURN_TYPE_THIRD_ACCOUNT_LIST;
+import static com.aliyun.iotx.api.util.command.ApiCommandHelper.getApiCommand;
 
 
 /**
  * 三方账号API
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/30
  */
 @SuppressWarnings("WeakerAccess")
@@ -68,7 +70,39 @@ public class ThirdPartyApi {
     }
 
     /**
-     * 导入三方账号
+     * 按租户维度，批量获取账号
+     *
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
+    public static ApiCommand<ThirdAccountListDTO> queryThirdAccountList(Integer pageNo, Integer pageSize) {
+        ApiConfig apiConfig = ApiConfigLoader.get(G_BASE_SEP, "queryThirdAccountList");
+
+        HashMap<String, Object> params = Maps.newHashMapWithExpectedSize(2);
+        params.put("pageNo", pageNo);
+        params.put("pageSize", pageSize);
+
+        return getApiCommand(apiConfig, params, RETURN_TYPE_THIRD_ACCOUNT_LIST);
+    }
+
+    /**
+     * 根据三方提供的openId查询IoT的账号信息
+     *
+     * @param openId
+     * @return
+     */
+    public static ApiCommand<IdentityDTO> getAccountByOpenId(String openId) {
+        ApiConfig apiConfig = ApiConfigLoader.get(G_BASE_SEP, "getAccountByOpenId");
+
+        HashMap<String, Object> params = Maps.newHashMapWithExpectedSize(1);
+        params.put("openId", openId);
+
+        return getApiCommand(apiConfig, params, RETURN_TYPE_IDENTITY);
+    }
+
+    /**
+     * 校验账号是否已注册
      *
      * @return ApiCommand，结果格式见文档
      */

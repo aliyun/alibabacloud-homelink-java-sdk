@@ -7,7 +7,7 @@ import lombok.Data;
 /**
  * 用于 绑定虚拟设备和空间 {@link SpaceApi#bindSpaceVirtualDevice}接口的返回结果
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/25
  */
 @Data

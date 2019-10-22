@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 空间实例的结构
  *
- * @author  alibaba
+ * @author yonggan.hyg@alibaba-inc.com
  * @date 2018/12/08
  */
 @ValidateBean

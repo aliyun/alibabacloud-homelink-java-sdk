@@ -1,19 +1,14 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.util.command;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.aliyun.iotx.api.client.SyncApiClient;
 import com.aliyun.iotx.api.util.api.ApiConfig;
-import com.aliyun.iotx.api.util.exception.IoTxServiceException;
 import com.google.common.base.Preconditions;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
-import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -29,7 +24,7 @@ import static java.util.Objects.nonNull;
  * <p>
  * {@link SyncApiClient}的用法参考：<a href="https://github.com/aliyun/iotx-api-gateway-client">阿里云物联网一站式开发平台服务客户端以及调用实例</a>
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2018/11/12
  */
 @Slf4j
@@ -40,11 +35,6 @@ public class ApiCommand<T> {
      */
     @Getter
     private final String url;
-
-    /**
-     * 运行的角色
-     */
-    private ApiAccount as;
 
     /**
      * 运行环境
@@ -161,15 +151,6 @@ public class ApiCommand<T> {
         }
     }
 
-    /**
-     * 设置账号信息
-     *
-     * @param as 阿里云账号
-     */
-    /*public ApiCommand<T> as(AliYunAccount as) {
-        this.as = as;
-        return this;
-    }*/
 
     /**
      * 设置参数的{@link Supplier}
@@ -198,6 +179,7 @@ public class ApiCommand<T> {
     /**
      * API的运行环境，将在{@link ApiCommand}中取出来构造
      */
+    @SuppressWarnings("unused")
     public ApiCommand<T> apiEnv(ApiEnvironment apiEnv) {
         this.apiEnv = apiEnv;
         return this;
@@ -231,32 +213,7 @@ public class ApiCommand<T> {
      * @return API的运行环境配置
      */
     ApiEnvironment getApiEnv() {
-        /*if (isNull(apiEnv)) {
-            apiEnv = ApiHelper.getDefaultApiEnvironment();
-        }
-        Preconditions.checkNotNull(apiEnv, "未配置API运行环境，使用ApiHelper.setDefaultApiEnvironment()或ApiCommand.apiEnv()设置");
-        */
         return apiEnv;
-    }
-
-    /**
-     * 返回账号信息，当没有设置也没有默认账号信息时，抛出NPE。
-     * <p>
-     * 使用{@link ApiCommand#apiEnv}设置账号信息
-     * <p>
-     * 或
-     * <p>
-     * 使用{@link ApiCommandHelper (AliYunAccount)}设置默认账号信息
-     *
-     * @return 账号
-     */
-    ApiAccount getAliYunAccount() {
-        /*if (isNull(as)) {
-            as = ApiHelper.getDefaultAliYunAccount();
-        }
-        Preconditions.checkNotNull(as, "未配置默认账号，使用ApiHelper.setDefaultAliYunAccount()或ApiCommand.apiEnv()设置");
-        */
-        return as;
     }
 
     private static void assertParam(String url, Supplier<Map<String, Object>> paramSupplier) {
@@ -282,7 +239,7 @@ public class ApiCommand<T> {
     /**
      * API接口调用结果的校验方法定义，在{@link ApiCommand}中调用
      *
-     * @author alibaba
+     * @author zhangjingwei.zjw@alibaba-inc.com
      */
     @FunctionalInterface
     public interface ApiAssertFunc<T> {

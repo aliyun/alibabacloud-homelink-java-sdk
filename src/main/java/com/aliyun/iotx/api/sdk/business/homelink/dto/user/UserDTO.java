@@ -3,7 +3,7 @@ package com.aliyun.iotx.api.sdk.business.homelink.dto.user;
 import lombok.Data;
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2018/12/04
  */
 @Data

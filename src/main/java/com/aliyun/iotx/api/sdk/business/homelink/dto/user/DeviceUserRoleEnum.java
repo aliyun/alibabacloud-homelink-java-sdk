@@ -1,7 +1,7 @@
 package com.aliyun.iotx.api.sdk.business.homelink.dto.user;
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/25
  */
 public enum DeviceUserRoleEnum {
@@ -13,5 +13,5 @@ public enum DeviceUserRoleEnum {
     /**
      * 设备的使用者，可以看到和使用设备
      */
-    DEVICE_VISITOR
+    DEVICE_MEMBER
 }

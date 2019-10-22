@@ -1,12 +1,10 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink.business;
 
-import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.aliyun.iotx.api.sdk.business.homelink.ApiResultTypeConstants;
 import com.aliyun.iotx.api.sdk.business.homelink.DefaultAssertFunc;
+import com.aliyun.iotx.api.sdk.business.homelink.dto.device.CommandResult;
 import com.aliyun.iotx.api.sdk.business.homelink.dto.device.DeviceBaseV1DTO;
 import com.aliyun.iotx.api.sdk.business.homelink.dto.device.DeviceBindSpaceResultDTO;
 import com.aliyun.iotx.api.sdk.business.homelink.dto.device.DeviceDTO;
@@ -19,17 +17,18 @@ import com.aliyun.iotx.api.util.api.ApiConfig;
 import com.aliyun.iotx.api.util.api.ApiConfigLoader;
 import com.aliyun.iotx.api.util.command.ApiCommand;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.aliyun.iotx.api.sdk.business.homelink.ApiUtil.createParamMap;
 import static com.aliyun.iotx.api.sdk.business.homelink.ApiResultTypeConstants.*;
+import static com.aliyun.iotx.api.sdk.business.homelink.ApiUtil.createParamMap;
 import static com.aliyun.iotx.api.util.command.ApiCommandHelper.getApiCommand;
 
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/25
  */
 public class SpaceDeviceApi {
@@ -230,12 +229,13 @@ public class SpaceDeviceApi {
         DeviceBindSpaceResultDTO result = new DeviceBindSpaceResultDTO();
         Integer successCount = jo.getInteger("successCount");
         result.setSuccessCount(successCount);
-
-        JSONArray batchResultMapList = jo.getJSONArray("batchResultMap");
-        batchResultMapList.forEach(brm -> {
-            Map<String, Object> map = ((JSONObject)brm).getInnerMap();
-
+        JSONObject batchResultMap = jo.getJSONObject("batchResultMap");
+        Map<String, CommandResult> map = new HashMap<>();
+        batchResultMap.entrySet().stream().forEach(entry -> {
+            map.put(entry.getKey(), JSON.toJavaObject((JSON) entry.getValue(), CommandResult.class));
         });
+        result.setBatchResultMap(Collections.singletonList(map));
+
         return result;
     }
 }

@@ -1,12 +1,11 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink.business;
 
 import com.alibaba.fastjson.JSON;
 import com.aliyun.iotx.api.sdk.TestInit;
+import com.aliyun.iotx.api.sdk.business.homelink.dto.device.DeviceDTO;
 import com.aliyun.iotx.api.sdk.business.homelink.dto.device.SpaceDeviceDTO;
 import com.aliyun.iotx.api.sdk.dto.IdentityDTO;
+import com.aliyun.iotx.api.sdk.dto.PageDTO;
 import com.aliyun.iotx.api.util.exception.IoTxServiceException;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.util.Lists;
@@ -20,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/09/20
  */
 public class DeviceApiTest {
@@ -64,6 +63,7 @@ public class DeviceApiTest {
         List<SpaceDeviceDTO> device = DeviceApi.getDevice(operator,
             Collections.singletonList("kvH36PwwtGa0CiQ5CJdl000100")).executeAndGet();
         System.out.println(JSON.toJSONString(device, true));
+
     }
 
     @Test
@@ -72,6 +72,10 @@ public class DeviceApiTest {
 
     @Test
     public void queryDevices() {
+        PageDTO<DeviceDTO> page = DeviceApi.queryDevices(operator, 1, 20).executeAndGet();
+
+        List<DeviceDTO> devices = page.getData();
+        System.out.println(JSON.toJSONString(devices, true));
     }
 
     @Test

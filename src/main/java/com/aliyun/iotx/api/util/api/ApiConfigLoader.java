@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.util.api;
 
 import com.alibaba.fastjson.JSON;
@@ -20,7 +17,7 @@ import static java.util.Objects.nonNull;
 /**
  * API配置加载器，用于加载并创建服务接口的基础配置信息
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/09
  */
 @SuppressWarnings("WeakerAccess")

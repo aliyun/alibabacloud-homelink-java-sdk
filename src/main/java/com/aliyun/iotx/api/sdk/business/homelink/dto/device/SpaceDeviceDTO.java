@@ -6,7 +6,7 @@ import java.util.List;
 
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/08/06
  */
 @Data
@@ -23,6 +23,22 @@ public class SpaceDeviceDTO extends DeviceBaseDTO {
     private String nickName;
 
     private String productName;
+
+    private String categoryName;
+
+    private Long categoryId;
+
+    private String categoryKey;
+
+    private String thingType;
+
+    private String nodeType;
+
+    private String netType;
+
+    private String spaceNamePath;
+
+    private String lastOnlineTime;
 
     private Integer status;
 

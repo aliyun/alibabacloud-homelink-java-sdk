@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.util.context;
 
 import com.aliyun.iotx.api.util.assertion.IoTxAssertions;
@@ -15,7 +12,7 @@ import static com.aliyun.iotx.api.util.command.ApiCommandHelper.API_TAG_PRE;
 
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/09
  */
 public final class ApiContext {

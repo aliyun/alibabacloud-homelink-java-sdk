@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.util.command;
 
 import lombok.Builder;
@@ -11,7 +8,7 @@ import lombok.ToString;
 /**
  * API的运行环境配置（网关连接参数），应用在{@link ApiCommandHelper}和{@link ApiCommand#getApiEnv()}提供API的环境参数
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2018/11/13
  */
 @Data

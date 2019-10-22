@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink;
 
 import com.aliyun.iotx.api.util.assertion.IoTxAssertions;
@@ -11,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 默认验证方法实现
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/09/20
  */
 @Slf4j

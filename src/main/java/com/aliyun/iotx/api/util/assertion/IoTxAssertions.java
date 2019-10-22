@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.util.assertion;
 
 import com.aliyun.iotx.api.util.entity.IoTxCode;
@@ -48,7 +45,7 @@ import static java.util.Objects.nonNull;
  * #assertNotEquals}是对布尔、对象、字符串和窗器类型的断言断言方法</li>
  * </ul>
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2018/10/31
  */
 @SuppressWarnings({"WeakerAccess", "unused"})

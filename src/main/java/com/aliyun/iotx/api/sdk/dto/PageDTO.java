@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.dto;
 
 import lombok.Data;
@@ -11,7 +8,7 @@ import java.util.List;
 /**
  * 分页定义
  *
- * @author alibaba
+ * @author zhenzhao.czz
  * @date 2018/4/2 分页查询
  */
 @Data

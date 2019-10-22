@@ -1,7 +1,4 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
-# 阿里IoT 人居PaaS服务 API配置文件
+# 阿里IoT 人居PaaS服务 API配置文件 
 # Date: 20190408
 
 name: HomeLink
@@ -16,9 +13,19 @@ apis:
     url: /home/paas/device/tsl/get
     version: 1.0.0
     module: DEVICE
+  product_tsl_get:
+    name: 获取产品TSL
+    url: /thing/tsl/getByProducyKey
+    version: 1.0.2
+    module: DEVICE
   device_list:
     name: 查询设备
     url: /home/paas/device/list
+    version: 1.0.0
+    module: DEVICE
+  device_info_get:
+    name: 根据PK、DN查询设备信息
+    url: /home/paas/device/info/get
     version: 1.0.0
     module: DEVICE
   device_nickname_update:
@@ -41,6 +48,11 @@ apis:
     url: /home/paas/device/sub/list
     version: 1.0.0
     module: DEVICE
+  lp_device_bind:
+    name: 绑定公区设备
+    url: /home/paas/lp/device/bind
+    version: 1.0.0
+    module: DEVICE
   user_device_bind:
     name: 绑定用户与设备
     url: /home/paas/user/device/bind
@@ -49,12 +61,12 @@ apis:
   user_device_perm_auth:
     name: 授予目标用户某设备的权限
     url: /home/paas/user/device/perm/auth
-    version: 1.0.1
+    version: 1.0.0
     module: DEVICE
   device_detail_get:
     name: 查询设备详情
     url: /home/paas/device/detail/get
-    version: 1.0.0
+    version: 1.0.2
     module: DEVICE
   user_device_unbind:
     name: 解绑用户与设备
@@ -70,6 +82,11 @@ apis:
     name: 查询设备的用户
     url: /home/paas/device/user/list
     version: 1.0.1
+    module: DEVICE
+  device_user_list_with_role:
+    name: 查询设备的用户(带用户角色)
+    url: /home/paas/device/userrole/list
+    version: 1.0.0
     module: DEVICE
   device_space_get:
     name: 查询设备的空间
@@ -154,7 +171,7 @@ apis:
   scene_user_list:
     name: 查询场景的用户列表
     url: /home/paas/scene/user/list
-    version: 1.0.0
+    version: 2.0.0
     module: SCENE
   product_list:
     name: 查询产品列表
@@ -163,7 +180,7 @@ apis:
     module: SCENE_TEMPLATE
   productkey_tca_filter:
     name: 筛选符合TCA功能的产品
-    url: /home/paas/productkey/tca/filter
+    url: /home/paas/productKey/tca/filter
     version: 1.0.1
     module: SCENE_TEMPLATE
   product_tca_get:
@@ -319,7 +336,7 @@ apis:
   space_scene_bind:
     name: 绑定空间和场景
     url: /home/paas/space/scene/bind
-    version: 1.0.1
+    version: 1.0.0
     module: SPACE
   space_scene_unbind:
     name: 解绑空间和场景
@@ -344,7 +361,7 @@ apis:
   space_user_list:
     name: 查询空间的用户
     url: /home/paas/space/user/list
-    version: 1.0.0
+    version: 2.0.0
     module: SPACE
   user_allspaces_unbind:
     name: 解绑用户的所有空间
@@ -571,3 +588,69 @@ apis:
     url: /homelink/cloud/api/account/auth/commit
     version: 1.0.0
     module: EXT_ACCOUNT
+
+  space_edge_gateway_query:
+    name: 查询空间的边缘网关
+    url: /home/paas/space/edge/gateway/query
+    version: 1.0.0
+    module: EDGE
+  user_edge_gateway_query:
+    name: 查询人的边缘网关
+    url: /home/paas/user/edge/gateway/query
+    version: 1.0.0
+    module: EDGE
+  edge_gateway_query:
+    name: 查询租户的边缘网关
+    url: /home/paas/edge/gateway/query
+    version: 1.0.0
+    module: EDGE
+  edge_config_push:
+    name: 推送配置到边缘网关设备
+    url: /home/paas/edge/config/push
+    version: 1.0.0
+    module: EDGE
+  edge_config_clear:
+    name: 清空边缘网关上的配置
+    url: /home/paas/edge/config/clear
+    version: 1.0.0
+    module: EDGE
+  edge_config_delete:
+    name: 移除边缘网关上的配置
+    url: /home/paas/edge/config/delete
+    version: 1.0.0
+    module: EDGE
+  edge_device_add:
+    name: 向边缘网关配置中添加设备
+    url: /home/paas/edge/device/add
+    version: 1.0.0
+    module: EDGE
+  edge_device_delete:
+    name: 从边缘网关配置中删除设备
+    url: /home/paas/edge/device/delete
+    version: 1.0.0
+    module: EDGE
+  edge_device_query:
+    name: 查询已经加入到边缘网关配置下的子设备列表
+    url: /home/paas/edge/device/query
+    version: 1.0.0
+    module: EDGE
+  edge_unconfigured_device_query:
+    name: 查询边缘网关已连接但未加入到配置下的子设备列表
+    url: /home/paas/edge/unconfigured/device/query
+    version: 1.0.0
+    module: EDGE
+  edge_scene_add:
+    name: 向边缘网关配置中添加场景
+    url: /home/paas/edge/scene/add
+    version: 1.0.0
+    module: EDGE
+  edge_scene_delete:
+    name: 从边缘网关配置中删除场景
+    url: /home/paas/edge/scene/delete
+    version: 1.0.0
+    module: EDGE
+  edge_scene_query:
+    name: 查询边缘网关配置中的场景
+    url: /home/paas/edge/scene/query
+    version: 1.0.0
+    module: EDGE

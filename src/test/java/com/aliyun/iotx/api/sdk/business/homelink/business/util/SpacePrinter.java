@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink.business.util;
 
 import com.aliyun.iotx.api.sdk.business.homelink.business.DeviceUserApi;
@@ -14,6 +11,7 @@ import com.aliyun.iotx.api.sdk.business.homelink.dto.space.SpaceQueryDTO;
 import com.aliyun.iotx.api.sdk.business.homelink.dto.user.UserDTO;
 import com.aliyun.iotx.api.sdk.dto.IdentityDTO;
 import com.aliyun.iotx.api.sdk.dto.PageDTO;
+import com.aliyun.iotx.api.sdk.dto.PageSearchDTO;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 
@@ -23,7 +21,7 @@ import static java.util.Objects.isNull;
 
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/09/19
  */
 @SuppressWarnings("WeakerAccess")
@@ -76,17 +74,17 @@ public class SpacePrinter {
             return;
         }
 
-        PageDTO<UserDTO> page = SpaceUserApi.querySpaceUsers(
+        PageDTO<IdentityDTO> page = SpaceUserApi.querySpaceUsers(
             operator,
             subSpace.getId(), 1, 100).executeAndGet();
 
-        List<UserDTO> list = page.getData();
+        List<IdentityDTO> list = page.getData();
         if (isNull(list) || list.isEmpty()) {
             return;
         }
 
         list.forEach(dev -> {
-            String summary = SummaryUtil.getUserSummary(dev);
+            String summary = SummaryUtil.getIdentitySummary(dev);
             String prefix = SummaryUtil.getPrefix(deep);
             System.out.println(prefix + summary);
         });
@@ -122,12 +120,13 @@ public class SpacePrinter {
             return;
         }
 
-        DeviceTcaQueryDTO query = new DeviceTcaQueryDTO();
+        PageSearchDTO query = new DeviceTcaQueryDTO();
         PageDTO<IdentityDTO> page;
         try {
             page = DeviceUserApi.queryDeviceUsers(operator, dev.getIotId(), query).executeAndGet();
         } catch (Exception e) {
-            System.out.println("查询设备的用户列表失败 iotId="+ dev.getIotId());
+
+            //System.out.println("查询设备的用户列表失败 iotId="+ dev.getIotId());
             return;
         }
 

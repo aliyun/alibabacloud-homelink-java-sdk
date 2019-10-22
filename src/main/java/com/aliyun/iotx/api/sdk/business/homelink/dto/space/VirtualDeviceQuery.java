@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/25
  */
 @Data

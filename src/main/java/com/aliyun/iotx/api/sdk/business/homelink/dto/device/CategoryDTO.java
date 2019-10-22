@@ -6,7 +6,7 @@ import lombok.Data;
 /**
  * 品类
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/08/27
  */
 @Data

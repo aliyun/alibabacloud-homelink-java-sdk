@@ -5,11 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.aliyun.iotx.homelink.service.sdk</groupId>
-    <artifactId>alibabacloud-homelink-java-sdk</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>homelink-service-sdk</artifactId>
+    <version>1.0.1</version>
 
     <dependencies>
-
 
         <!-- ======== 2.1. 项目二方库 =================================== -->
 
@@ -89,12 +88,12 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
-            <scope>provided</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>ch.qos.logback</groupId>-->
+            <!--<artifactId>logback-classic</artifactId>-->
+            <!--<version>1.2.3</version>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
 
         <!-- ======== 3.7. Other ====================================== -->
 

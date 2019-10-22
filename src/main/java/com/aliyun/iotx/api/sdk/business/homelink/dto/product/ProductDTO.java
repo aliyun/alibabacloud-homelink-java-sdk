@@ -50,6 +50,11 @@ public class ProductDTO implements Serializable {
      */
     private String nickName;
 
+    /**
+     * 产品图标
+     */
+    private String image;
+
     @Override
     public String toString() {
         return "ProductDTO{" +

@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.util.command;
 
 import com.alibaba.cloudapi.sdk.model.ApiResponse;
@@ -16,7 +13,6 @@ import com.aliyun.iotx.api.util.assertion.IoTxAssertions;
 import com.aliyun.iotx.api.util.context.ApiContext;
 import com.aliyun.iotx.api.util.exception.IoTxServiceException;
 import com.google.common.base.Preconditions;
-import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,7 +30,7 @@ import static java.util.Objects.nonNull;
 /**
  * {@link ApiCommand}的帮助类
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2018/11/12
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
@@ -89,10 +85,7 @@ public class ApiCommandHelper {
         try {
             IoTApiRequest request = new IoTApiRequest();
             request.setApiVer(api.getApiVer());
-            if (nonNull(api.getAliYunAccount())
-                && !Strings.isNullOrEmpty(api.getAliYunAccount().getIotToken())) {
-                request.setIotToken(api.getAliYunAccount().getIotToken());
-            }
+
             for (Map.Entry<String, Object> entry : api.getParamSupplier().get().entrySet()) {
                 request.putParam(entry.getKey(), entry.getValue());
             }

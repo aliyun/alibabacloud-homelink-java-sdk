@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.util.entity;
 
 import com.aliyun.iotx.api.util.assertion.IoTxAssertions;
@@ -20,7 +17,7 @@ import static java.util.Objects.isNull;
  * <p>
  * TODO 增加一个paramsSupplier方法，在需要的时候调用生成消息参数，避免运行时生成参数的消耗
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2018/11/4
  * @see IoTxAssertions
  */

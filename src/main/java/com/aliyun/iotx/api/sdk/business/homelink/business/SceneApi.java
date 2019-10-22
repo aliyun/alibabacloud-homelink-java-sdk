@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink.business;
 
 import com.alibaba.fastjson.JSONArray;
@@ -24,7 +21,7 @@ import static com.aliyun.iotx.api.util.command.ApiCommandHelper.getApiCommand;
 /**
  * 场景相关API、创建、修改、删除等
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/24
  */
 @Slf4j

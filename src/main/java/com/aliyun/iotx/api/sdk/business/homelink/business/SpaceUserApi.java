@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink.business;
 
 import com.aliyun.iotx.api.sdk.business.homelink.dto.space.SpaceQueryDTO;
@@ -22,7 +19,7 @@ import static com.aliyun.iotx.api.util.command.ApiCommandHelper.getApiCommand;
 /**
  * 空间与用户相关API
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/25
  */
 @SuppressWarnings("WeakerAccess")
@@ -137,7 +134,7 @@ public class SpaceUserApi {
      * @return 调用 {@link ApiCommand#executeAndGet()} ()}执行获取用户信息分页
      */
     @SuppressWarnings("Duplicates")
-    public static ApiCommand<PageDTO<UserDTO>> querySpaceUsers(IdentityDTO operator,
+    public static ApiCommand<PageDTO<IdentityDTO>> querySpaceUsers(IdentityDTO operator,
                                                                String spaceId,
                                                                int pageNo,
                                                                int pageSize) {
@@ -151,7 +148,7 @@ public class SpaceUserApi {
         HashMap<String, Object> params = createParamMap(operator, 8);
         params.put("userSpaceQuery", query);
 
-        return getApiCommand(apiConfig, params, RETURN_TYPE_USER_PAGE);
+        return getApiCommand(apiConfig, params, RETURN_TYPE_IDENTITY_PAGE);
     }
 
 }

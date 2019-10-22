@@ -1,13 +1,10 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.util;
 
 import com.aliyun.iotx.api.util.entity.IoTxCodePro;
 
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2018/12/17
  */
 public class Constant {

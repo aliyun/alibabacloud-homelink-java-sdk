@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink.business;
 
 import com.alibaba.fastjson.JSON;
@@ -20,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/08/27
  */
 @Slf4j
@@ -58,11 +55,11 @@ public class ProductApiTest {
 
     @Test
     public void getProductListByCategoryKey() {
-        PageDTO<ProductDTO> products = ProductApi.queryProducts(operator, null, null, "SmartDoor", 1, 20)
+        PageDTO<ProductDTO> products = ProductApi.queryProducts(operator, null, null, "SmartLife", 1, 20)
             .executeAndGet();
 
         assertThat(products).isNotNull();
-        assertThat(products.getData()).isNotEmpty();
+        //assertThat(products.getData()).isNotEmpty();
 
         System.out.println(JSON.toJSONString(products, true));
     }
@@ -70,6 +67,24 @@ public class ProductApiTest {
     @Test
     public void getProductListByCategory() {
         String categoryKey = "AirConditioning";
+
+        PageDTO<ProductDTO> products = ProductApi.queryProducts(operator, null, null, categoryKey, 1, 20)
+            .executeAndGet();
+
+        assertThat(products).isNotNull();
+        List<ProductDTO> data = products.getData();
+        assertThat(data).isNotEmpty();
+
+        for (ProductDTO datum : data) {
+            assertThat(datum.getCategoryKey()).isEqualTo(categoryKey);
+        }
+
+        System.out.println(JSON.toJSONString(products, true));
+    }
+
+    @Test
+    public void getProductListByCategoryLighting() {
+        String categoryKey = "Lighting";
 
         PageDTO<ProductDTO> products = ProductApi.queryProducts(operator, null, null, categoryKey, 1, 20)
             .executeAndGet();

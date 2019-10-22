@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.util.entity;
 
 import lombok.Data;
@@ -10,7 +7,7 @@ import static com.aliyun.iotx.api.util.Constant.SUCCESS_CODE;
 
 
 /**
- * @author alibaba
+ * @author zhuangyao.zy
  * @date 2017/3/17
  */
 @Data

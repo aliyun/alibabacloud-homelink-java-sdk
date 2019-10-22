@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 
 /**
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/01/11
  */
 @Data

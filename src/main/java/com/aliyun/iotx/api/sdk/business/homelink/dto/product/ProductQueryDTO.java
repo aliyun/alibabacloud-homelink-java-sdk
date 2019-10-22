@@ -21,7 +21,10 @@ public class ProductQueryDTO extends PageSearchDTO implements Serializable {
      */
     private String productName;
 
-    private String productkey;
+    /**
+     * 产品key
+     */
+    private String productKey;
 
     /**
      * 产品对应的品类key

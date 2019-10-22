@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink.business.util;
 
 import com.aliyun.iotx.api.sdk.business.homelink.business.ProductApi;
@@ -20,7 +17,7 @@ import static java.util.Objects.isNull;
 /**
  * 打印产品、品类
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/09/20
  */
 public class CategoryAndProductPrinter {

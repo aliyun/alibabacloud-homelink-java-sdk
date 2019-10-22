@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink.business;
 
 import com.aliyun.iotx.api.sdk.business.homelink.dto.device.DeviceTcaDTO;
@@ -21,7 +18,7 @@ import static com.aliyun.iotx.api.util.command.ApiCommandHelper.getApiCommand;
 /**
  * 场景与设备相关API
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/25
  */
 public class SceneDeviceApi {

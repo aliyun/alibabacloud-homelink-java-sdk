@@ -19,7 +19,7 @@ import static java.util.Objects.nonNull;
 /**
  * 通用log工具，统一日志格式，便于监控、排查问题
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2018/3/28
  */
 @SuppressWarnings("WeakerAccess")

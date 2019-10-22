@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.sdk.business.homelink.business;
 
 import com.aliyun.iotx.api.sdk.business.homelink.dto.scene.SceneDesignDTO;
@@ -22,7 +19,7 @@ import static com.aliyun.iotx.api.util.command.ApiCommandHelper.getApiCommand;
 /**
  * 场景与用户相关API
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2019/07/25
  */
 public class SceneUserApi {
@@ -97,7 +94,7 @@ public class SceneUserApi {
      * @param sceneId  要查询的场景ID
      * @return 调用 {@link ApiCommand#executeAndGet()} ()}执行获取用户ID列表
      */
-    public static ApiCommand<List<String>> querySceneUsers(IdentityDTO operator, String sceneId) {
+    public static ApiCommand<List<IdentityDTO>> querySceneUsers(IdentityDTO operator, String sceneId) {
         ApiConfig apiConfig = ApiConfigLoader.get(G_HOME_LINK, "scene_user_list");
 
         SceneSearchDTO query = new SceneSearchDTO();
@@ -106,6 +103,6 @@ public class SceneUserApi {
         HashMap<String, Object> params = createParamMap(operator, 8);
         params.put("queryInfo", query);
 
-        return getApiCommand(apiConfig, params, RETURN_TYPE_STRING_LIST);
+        return getApiCommand(apiConfig, params, RETURN_TYPE_IDENTITY_LIST);
     }
 }

@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.util.api;
 
 import lombok.Data;
@@ -10,7 +7,7 @@ import lombok.ToString;
 /**
  * API配置
  *
- * @author alibaba
+ * @author weishi.cc
  * @date 2019/4/11
  */
 @Data

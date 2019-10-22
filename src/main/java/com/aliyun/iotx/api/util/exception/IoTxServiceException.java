@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2019 Alibaba Group Holding Limited
- */
 package com.aliyun.iotx.api.util.exception;
 
 import com.aliyun.iotx.api.util.entity.IoTxCode;
@@ -16,7 +13,7 @@ import lombok.ToString;
  * <p>
  * 封装了IoTxResult，可以取出后返回
  *
- * @author alibaba
+ * @author zhangjingwei.zjw@alibaba-inc.com
  * @date 2018/10/11
  */
 @SuppressWarnings("unused")
