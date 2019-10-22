@@ -85,7 +85,7 @@ apis:
     module: DEVICE
   device_user_list_with_role:
     name: 查询设备的用户(带用户角色)
-    url: /home/paas/device/userrole/list
+    url: /home/paas/device/userrole/query
     version: 1.0.0
     module: DEVICE
   device_space_get:
