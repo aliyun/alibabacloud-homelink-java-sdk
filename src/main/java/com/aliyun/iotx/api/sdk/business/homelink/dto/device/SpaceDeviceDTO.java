@@ -1,6 +1,7 @@
 package com.aliyun.iotx.api.sdk.business.homelink.dto.device;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @date 2019/08/06
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class SpaceDeviceDTO extends DeviceBaseDTO {
 
     private String spaceId;

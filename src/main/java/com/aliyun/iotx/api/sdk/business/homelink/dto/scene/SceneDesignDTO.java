@@ -1,13 +1,11 @@
 package com.aliyun.iotx.api.sdk.business.homelink.dto.scene;
 
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastvalidator.constraints.ValidateBean;
 import com.aliyun.iotx.api.sdk.business.homelink.dto.space.SpaceInfo;
 import lombok.Data;
-import org.hibernate.validator.constraints.NotBlank;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+
 
 /**
  * 创建场景，及场景详情，场景不再限定到空间、人，而是一个独立的实体，唯一需要校验的是场景中的设备租户
@@ -16,21 +14,20 @@ import java.io.Serializable;
  * @date 2018/12/6 11:36 AM
  */
 @Data
-@ValidateBean
 public class SceneDesignDTO implements Serializable {
+
     private static final long serialVersionUID = 6462315394101985769L;
 
     /**
      * 场景名称
      */
-    @NotBlank
     private String name;
 
     /**
      * 场景图标
      */
-    @NotBlank
     private String icon;
+
     /**
      * 数组格式
      * <pre>
@@ -65,6 +62,7 @@ public class SceneDesignDTO implements Serializable {
      * </pre>
      */
     private JSONArray triggers;
+
     /**
      * <pre>
      * [{
@@ -89,6 +87,7 @@ public class SceneDesignDTO implements Serializable {
      * </pre>
      */
     private JSONArray conditions;
+
     /**
      * 数组格式
      * <pre>
@@ -141,8 +140,8 @@ public class SceneDesignDTO implements Serializable {
      * ]
      * <pre/>
      */
-    @NotNull(message = "actions can't be null")
     private JSONArray actions;
+
     /**
      * 创建的时候没有这个字段，更新的时候有
      */
@@ -157,10 +156,12 @@ public class SceneDesignDTO implements Serializable {
      * 表示场景生效
      */
     private Boolean enable;
+
     /**
      * 场景描述
      */
     private String description;
+
     /**
      * 场景状态
      */

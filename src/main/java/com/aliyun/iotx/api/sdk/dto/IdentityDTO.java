@@ -1,7 +1,6 @@
 package com.aliyun.iotx.api.sdk.dto;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.NotBlank;
 
 
 /**

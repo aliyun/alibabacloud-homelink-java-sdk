@@ -1,6 +1,7 @@
 package com.aliyun.iotx.api.util.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import static com.aliyun.iotx.api.util.Constant.SUCCESS;
 import static com.aliyun.iotx.api.util.Constant.SUCCESS_CODE;
@@ -11,6 +12,7 @@ import static com.aliyun.iotx.api.util.Constant.SUCCESS_CODE;
  * @date 2017/3/17
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class IoTxResult<DataType> extends IoTxCode {
 
     private static final String EMPTY_MESSAGE = "";

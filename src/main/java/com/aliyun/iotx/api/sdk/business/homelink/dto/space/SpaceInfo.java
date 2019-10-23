@@ -1,9 +1,6 @@
 package com.aliyun.iotx.api.sdk.business.homelink.dto.space;
 
-import com.alibaba.fastvalidator.constraints.ValidateBean;
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
 
 import java.util.List;
 
@@ -14,7 +11,6 @@ import java.util.List;
  * @author yonggan.hyg@alibaba-inc.com
  * @date 2018/12/08
  */
-@ValidateBean
 @Data
 public class SpaceInfo {
 
@@ -26,8 +22,6 @@ public class SpaceInfo {
     /**
      * 空间名称
      */
-    @NotBlank(message = "name can't be blank")
-    @Length(max = 128, message = "name length must not be greater than 128")
     private String name;
 
     /**

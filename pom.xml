@@ -10,7 +10,7 @@
 
     <dependencies>
 
-        <!-- ======== 2.1. 项目二方库 =================================== -->
+        <!-- ======== 项目二方库 =================================== -->
 
         <dependency>
             <groupId>com.aliyun.iotx</groupId>
@@ -36,20 +36,15 @@
             </exclusions>
         </dependency>
 
-        <!-- ======== 1. Ali功能包 =================================== -->
+        <!-- ======== Ali功能包 =================================== -->
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.54.sec06</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.alibaba.fastvalidator</groupId>
-            <artifactId>fastvalidator-constraints</artifactId>
-            <version>2.6.1.0</version>
-        </dependency>
-
-        <!-- ======== 3.2. Apache ===================================== -->
+        <!-- ======== Apache ===================================== -->
 
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -63,7 +58,7 @@
             <version>1.2</version>
         </dependency>
 
-        <!-- ======== 3.3. Google ===================================== -->
+        <!-- ======== Google ===================================== -->
 
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -71,9 +66,7 @@
             <version>28.1-jre</version>
         </dependency>
 
-        <!-- ======== 3.4. Web ======================================== -->
-
-        <!-- ======== 3.5. Log ======================================== -->
+        <!-- ======== Log ======================================== -->
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -88,14 +81,14 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>ch.qos.logback</groupId>-->
-            <!--<artifactId>logback-classic</artifactId>-->
-            <!--<version>1.2.3</version>-->
-            <!--<scope>provided</scope>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+            <scope>provided</scope>
+        </dependency>
 
-        <!-- ======== 3.7. Other ====================================== -->
+        <!-- ======== Other ====================================== -->
 
         <dependency>
             <groupId>org.yaml</groupId>
@@ -109,6 +102,8 @@
             <version>1.18.4</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- ======== Test ====================================== -->
 
         <dependency>
             <groupId>org.assertj</groupId>

@@ -2,10 +2,10 @@ package com.aliyun.iotx.api.sdk.dto;
 
 import lombok.Data;
 
-import javax.validation.constraints.Min;
 
 /**
  * 分页查询参数
+ *
  * @author baobao.xq
  * @date 2018/12/13上午11:51
  */
@@ -14,6 +14,7 @@ import javax.validation.constraints.Min;
 public class PageSearchDTO {
 
     private final int DEFAULT_PAGE_SIZE = 20;
+
     private final int MIN_PAGE_INDEX = 1;
 
     /**
@@ -24,7 +25,6 @@ public class PageSearchDTO {
     /**
      * 当前页码，从1开始
      */
-    @Min(value = 1, message = "pageNo must not be less than 1", groups = {PageSearchDTO.RangeCheck.class})
     private Integer pageNo = 1;
 
     /**
@@ -37,11 +37,11 @@ public class PageSearchDTO {
         this.pageSize = DEFAULT_PAGE_SIZE;
     }
 
-    public Integer getPageSize () {
+    public Integer getPageSize() {
         return pageSize == null ? DEFAULT_PAGE_SIZE : pageSize;
     }
 
-    public Integer getPageNo () {
+    public Integer getPageNo() {
         return pageNo == null ? MIN_PAGE_INDEX : pageNo;
     }
 

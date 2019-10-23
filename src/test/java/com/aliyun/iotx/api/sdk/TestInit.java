@@ -25,7 +25,7 @@ public class TestInit {
      */
     public static void init() {
         // TODO 手动修改，选择测试用的账号
-        TestAccounts.ApiEnv apiEnv = TestAccounts.ALIOS_ENV;
+        TestAccounts.ApiEnv apiEnv = TestAccounts.EMPTY_ENV;
 
         operator = initEnv(apiEnv, true, false);
         env = apiEnv.env;

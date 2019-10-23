@@ -8,14 +8,11 @@ import com.aliyun.iotx.api.util.api.ApiConfig;
 import com.aliyun.iotx.api.util.api.ApiConfigLoader;
 import com.aliyun.iotx.api.util.command.ApiCommand;
 import com.google.common.collect.Maps;
-import org.hibernate.validator.constraints.NotBlank;
 
 import java.util.HashMap;
 import java.util.Optional;
 
-import static com.aliyun.iotx.api.sdk.business.homelink.ApiResultTypeConstants.G_BASE_SEP;
-import static com.aliyun.iotx.api.sdk.business.homelink.ApiResultTypeConstants.RETURN_TYPE_IDENTITY;
-import static com.aliyun.iotx.api.sdk.business.homelink.ApiResultTypeConstants.RETURN_TYPE_THIRD_ACCOUNT_LIST;
+import static com.aliyun.iotx.api.sdk.business.homelink.ApiResultTypeConstants.*;
 import static com.aliyun.iotx.api.util.command.ApiCommandHelper.getApiCommand;
 
 
@@ -35,13 +32,13 @@ public class ThirdPartyApi {
      * @param nickName 平台类型
      * @return ApiCommand，结果格式见文档
      */
-    public static ApiCommand<String> importAccountForThirdParty(@NotBlank String openId,
-                                                                @NotBlank String nickName,
+    public static ApiCommand<String> importAccountForThirdParty(String openId,
+                                                                String nickName,
                                                                 String phone,
                                                                 String email,
                                                                 String avatarUrl,
                                                                 String creater,
-                                                                @NotBlank String loginName,
+                                                                String loginName,
                                                                 String password,
                                                                 Boolean pwdEncrypted,
                                                                 Integer openIdType) {

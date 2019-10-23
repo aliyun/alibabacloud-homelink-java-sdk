@@ -5,7 +5,6 @@ import com.aliyun.iotx.api.sdk.dto.PageSearchDTO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.validation.constraints.NotNull;
 
 /**
  * 用于查询场景详情，删除场景
@@ -16,6 +15,7 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class SceneTemplateSearchDTO extends PageSearchDTO {
+
     /**
      * 查询用户信息
      */
@@ -34,6 +34,5 @@ public class SceneTemplateSearchDTO extends PageSearchDTO {
     /**
      * 查询类型
      */
-    @NotNull
     private SceneTemplateSearchTypeEnum searchType;
 }

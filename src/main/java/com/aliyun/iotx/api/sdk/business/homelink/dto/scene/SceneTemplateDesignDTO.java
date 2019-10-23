@@ -1,10 +1,9 @@
 package com.aliyun.iotx.api.sdk.business.homelink.dto.scene;
 
-import com.alibaba.fastvalidator.constraints.ValidateBean;
 import lombok.Data;
-import org.hibernate.validator.constraints.NotBlank;
 
 import java.io.Serializable;
+
 
 /**
  * 场景模板详细字段
@@ -13,21 +12,20 @@ import java.io.Serializable;
  * @date 2018/12/6 11:36 AM
  */
 @Data
-@ValidateBean
 public class SceneTemplateDesignDTO implements Serializable {
+
     private static final long serialVersionUID = 6462315394101985769L;
 
     /**
      * 场景名称
      */
-    @NotBlank
     private String name;
 
     /**
      * 场景图标
      */
-    @NotBlank
     private String icon;
+
     /**
      * 数组格式
      * <pre>
@@ -62,6 +60,7 @@ public class SceneTemplateDesignDTO implements Serializable {
      * </pre>
      */
     private String triggers;
+
     /**
      * <pre>
      * [{
@@ -86,6 +85,7 @@ public class SceneTemplateDesignDTO implements Serializable {
      * </pre>
      */
     private String conditions;
+
     /**
      * 数组格式
      * <pre>
@@ -138,21 +138,23 @@ public class SceneTemplateDesignDTO implements Serializable {
      * ]
      * <pre/>
      */
-    @NotBlank(message = "actions can't be blank")
     private String actions;
 
     /**
      * 场景模板ID
      */
     private String sceneTemplateId;
+
     /**
      * 场景描述
      */
     private String description;
+
     /**
      * 空间ID
      */
     private String spaceId;
+
     /**
      * 空间模版ID
      */
