@@ -43,7 +43,7 @@ public class SceneDesignDTO implements Serializable {
      *   "params": {
      *     "iotId": "xxxxxxxx",
      *     "propertyName": "switch",
-     *     "compareType": ">, >=, ==, !=, in等",
+     *     "compareType": "&bt;, &bt;=, ==, !=, in等",
      *     "compareValue": 1
      *   },
      *   "uri": "trigger/device/property"
@@ -53,7 +53,7 @@ public class SceneDesignDTO implements Serializable {
      *     "iotId": "xxxxxxxx",
      *     "eventCode": "aaaaa",
      *     "propertyName": "switch",
-     *     "compareType": ">, >=, ==, !=, in等",
+     *     "compareType": "&bt;, &bt;=, ==, !=, in等",
      *     "compareValue": 1
      *   },
      *   "uri": "trigger/device/event"
@@ -69,7 +69,7 @@ public class SceneDesignDTO implements Serializable {
      *   "params": {
      *     "iotId": "xxxxxxxx",
      *     "propertyName": "switch",
-     *     "compareType": ">, >=, ==, !=, in等",
+     *     "compareType": "&bt;, &bt;=, ==, !=, in等",
      *     "compareValue": 1
      *   },
      *   "uri": "condition/device/property"
