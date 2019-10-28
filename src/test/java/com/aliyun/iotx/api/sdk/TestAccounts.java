@@ -24,13 +24,14 @@ public class TestAccounts {
             operator.setHid("xxx");
             operator.setHidType("IOT");
 
-ApiEnvironment env = ApiEnvironment.builder()
-    .name("alios-env")
-    .appKey("xxx")
-    .appSecret("xxx")
-    .host("api.link.aliyun.com")
-    .requestTimeout(30_000L)
-    .build();
+            ApiEnvironment env = ApiEnvironment.builder()
+                .name("default")
+                // 获取appKey/appSecret 参考 https://homelink.iot.aliyun.com/doc#cynigt.html
+                .appKey("xxx")
+                .appSecret("xxx")
+                .host("api.link.aliyun.com")
+                .requestTimeout(30_000L)
+                .build();
 
             EMPTY_ENV = new ApiEnv(env, operator);
         }
