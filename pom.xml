@@ -12,6 +12,21 @@
     <description>a java sdk of Aliyun IoT Homelink PaaS API</description>
     <url>http://homelink.iot.aliyun.com</url>
 
+    <licenses>
+        <license>
+            <name>The ApacheSoftware License, Version 2.0</name>
+            <url>https://filezilla-project.org/gpl.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Aliyun IOT</name>
+            <email>zhangjingwei.zjw@alibaba-inc.com</email>
+        </developer>
+    </developers>
+
     <dependencies>
 
         <!-- ======== 项目二方库 =================================== -->
