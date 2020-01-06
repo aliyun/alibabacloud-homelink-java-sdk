@@ -1,0 +1,35 @@
+# 阿里IoT 三方登录服务
+# Date: 20190408
+
+name: BaseSep
+apis:
+  importAccountForThirdParty:
+    name: 导入三方账号
+    url: /user/account/thirdparty/import
+    version: 1.0.1
+    module: SEP_ACCOUNT
+  checkAccountRegistered:
+    name: 校验账号是否已注册
+    url: /user/account/regcheck
+    version: 1.0.0
+    module: SEP_ACCOUNT
+  getAccountByOpenId:
+    name: 根据三方提供的openId查询IoT的账号信息
+    url: /user/account/thirdparty/openid/get
+    version: 1.0.0
+    module: SEP_ACCOUNT
+  queryThirdAccountList:
+    name: 按租户维度，批量获取账号
+    url: /user/account/thirdparty/query
+    version: 1.0.0
+    module: SEP_ACCOUNT
+  batchImportAccountForThirdParty:
+    name: 三方账号批量导入接口，导入后会生成三方账号关联的oa账号
+    url: /user/account/thirdparty/batchimport
+    version: 1.0.0
+    module: SEP_ACCOUNT
+  queryAccountInfoByPhone:
+    name: 根据手机号查询已存在的三方账号信息
+    url: /user/account/thirdparty/getinfo
+    version: 1.0.0
+    module: SEP_ACCOUNT
