@@ -1,0 +1,55 @@
+# 阿里IoT 三方登录服务
+# Date: 20190408
+
+name: ExtLock
+apis:
+  lockStaticPasswordCreate:
+    name: 创建静态密码
+    url: /home/paas/lock/staticpassword/create
+    version: 1.0.0
+    module: LOCK
+  lockStaticPasswordUpdate:
+    name: 更新静态密码
+    url: /home/paas/lock/staticpassword/update
+    version: 1.0.0
+    module: LOCK
+  lockStaticPasswordGet:
+    name: 获取静态密码
+    url: /home/paas/lock/staticpassword/get
+    version: 1.0.0
+    module: LOCK
+  lockStaticPasswordPush:
+    name: 发送静态密码给用户APP
+    url: /home/paas/lock/staticpassword/push
+    version: 1.0.0
+    module: LOCK
+  lockStaticPasswordRuleUpdate:
+    name: 更新静态密码规则
+    url: /home/paas/lock/staticpassword/rule/update
+    version: 1.0.0
+    module: LOCK
+  lockDynamicPasswordRuleUpdate:
+    name: 更新动态规则
+    url: /home/paas/lock/dynamicpassword/rule/update
+    version: 1.0.0
+    module: LOCK
+  lockDynamicPasswordGet:
+    name: 获取动态密码
+    url: /home/paas/lock/dynamicpassword/get
+    version: 1.0.0
+    module: LOCK
+  lockDynamicPasswordPush:
+    name: 发送动态密码给用户APP
+    url: /home/paas/lock/dynamicpassword/push
+    version: 1.0.0
+    module: LOCK
+  lockLock:
+    name: 锁的锁定
+    url: /home/paas/lock/lock
+    version: 1.0.0
+    module: LOCK
+  lockUnlock:
+    name: 锁的解锁
+    url: /home/paas/lock/unlock
+    version: 1.0.0
+    module: LOCK
