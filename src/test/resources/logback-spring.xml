@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <property name="APP_NAME" value="iotx-homelink-aquarius"/>
+
+    <!--日志通用前缀定义-->
+    <property name="LOG_BASE_INFO"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS}|_|%level|_|%X{logIndent}:%X{logSeq}|_|%X{traceId}"/>
+    <property name="FILE_LOG_PATTERN" value="${LOG_BASE_INFO}|_|%thread|_|%logger{35}|_|%msg%n"/>
+
+    <!--分布式锁日志前缀定义-->
+    <property name="LOG_ALIGNED_INFO"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS}|_|%5level|_|%X{logIndent}:%X{logSeq}|_|%X{traceId}"/>
+    <property name="DISTRIBUTED_LOCK_LOG_PATTERN" value="${LOG_ALIGNED_INFO}|_|%thread|_|%logger{35}|_|%msg%n"/>
+    <property name="FILE_LOG_PATTERN" value="${LOG_BASE_INFO}|_|%thread|_|%logger{35}|_|%msg%n" />
+    <property name="LOG_PATH" value="${user.home}/${APP_NAME}/logs"/>
+
+    <!--应用日志|业务日志-->
+    <property name="APP_LOG_FILE" value="${LOG_PATH}/application.log"/>
+    <appender name="APP_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${APP_LOG_FILE}</file>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${APP_LOG_FILE}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>50MB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+    </appender>
+    <appender name="ASYNC_APP_LOG" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>256</queueSize>
+        <includeCallerData>false</includeCallerData>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref="APP_LOG"/>
+    </appender>
+
+    <!--错误日志-->
+    <property name="ERROR_LOG_FILE" value="${LOG_PATH}/error.log"/>
+    <appender name="ERROR_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${ERROR_LOG_FILE}</file>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${ERROR_LOG_FILE}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>50MB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+    <appender name="ASYNC_ERROR_LOG" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>256</queueSize>
+        <includeCallerData>false</includeCallerData>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref="ERROR_LOG"/>
+    </appender>
+
+    <!--异常日志-->
+    <property name="EXP_LOG_FILE" value="${LOG_PATH}/exception.log"/>
+    <appender name="EXP_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${EXP_LOG_FILE}</file>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${EXP_LOG_FILE}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>50MB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+    <appender name="ASYNC_EXP_LOG" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>256</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref="EXP_LOG"/>
+    </appender>
+
+    <!--调用日志-->
+    <property name="INVOKE_LOG_FILE" value="${LOG_PATH}/invoke.log"/>
+    <appender name="INVOKE_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${INVOKE_LOG_FILE}</file>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${INVOKE_LOG_FILE}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>50MB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    <appender name="ASYNC_INVOKE_LOG" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>256</queueSize>
+        <includeCallerData>false</includeCallerData>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref="INVOKE_LOG"/>
+    </appender>
+
+    <!--分布式锁日志-->
+    <property name="LOCK_LOG_FILE" value="${LOG_PATH}/distributedLock.log"/>
+    <appender name="LOCK_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOCK_LOG_FILE}</file>
+        <encoder>
+            <pattern>${DISTRIBUTED_LOCK_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOCK_LOG_FILE}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>50MB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    <appender name="ASYNC_LOCK_LOG" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>256</queueSize>
+        <includeCallerData>false</includeCallerData>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref="LOCK_LOG"/>
+    </appender>
+
+    <!--DB日志-->
+    <property name="DAL_LOG_FILE" value="${LOG_PATH}/dal.log"/>
+    <appender name="DAL_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${DAL_LOG_FILE}</file>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${DAL_LOG_FILE}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>50MB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    <appender name="ASYNC_DAL_LOG" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>256</queueSize>
+        <includeCallerData>false</includeCallerData>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref="DAL_LOG"/>
+    </appender>
+    <!--logger-->
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="application" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="ASYNC_APP_LOG"/>
+        <appender-ref ref="ASYNC_ERROR_LOG"/>
+    </logger>
+
+    <logger name="dal" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="ASYNC_DAL_LOG"/>
+        <appender-ref ref="ASYNC_ERROR_LOG"/>
+    </logger>
+
+    <logger name="exception-logger" additivity="false">
+        <level value="ERROR"/>
+        <appender-ref ref="ASYNC_EXP_LOG"/>
+    </logger>
+
+    <logger name="invoke" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="ASYNC_INVOKE_LOG"/>
+    </logger>
+
+    <logger name="distributedLock" additivity="false">
+        <level value="TRACE"/>
+        <appender-ref ref="ASYNC_LOCK_LOG"/>
+    </logger>
+
+    <springProfile name="publish">
+        <root level="INFO">
+            <appender-ref ref="ASYNC_APP_LOG"/>
+            <appender-ref ref="ASYNC_ERROR_LOG"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="!publish">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="ASYNC_APP_LOG"/>
+            <appender-ref ref="ASYNC_ERROR_LOG"/>
+        </root>
+    </springProfile>
+
+    <!--<logger name="com.aliyun.iotx.digital.community.common.dal.dao" level="DEBUG"/>-->
+</configuration>
